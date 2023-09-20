@@ -1,0 +1,526 @@
+{
+  "stores": [
+    {
+      "id": "1",
+      "storename": "哈尔滨千百惠",
+      "ownerId": "0"
+    },
+    {
+      "id": "23",
+      "storename": "Bill's shop",
+      "ownerId": "20"
+    },
+    {
+      "id": "47",
+      "storename": "Samantha's shop",
+      "ownerId": "21"
+    }
+  ],
+  "users": [
+    {
+      "id": "0",
+      "username": "赵媛媛",
+      "storeId": "1"
+    },
+    {
+      "id": "2",
+      "username": "营业员",
+      "storeId": "1"
+    },
+    {
+      "id": "20",
+      "username": "Bill",
+      "storeId": "23"
+    },
+    {
+      "id": "21",
+      "username": "Samantha",
+      "storeId": "47"
+    },
+    {
+      "id": "22",
+      "username": "Bill's employee",
+      "storeId": "23"
+    },
+    {
+      "id": "befc8989-50e3-4c80-aec7-ca760163b538",
+      "username": "Jack",
+      "storeId": "47"
+    }
+  ],
+  "traders": [
+    {
+      "id": "101",
+      "tradername": "千百惠总部",
+      "storeId": "1",
+      "email": "1826442304@qq.com",
+      "phone": "0432817039",
+      "type": "供应商",
+      "address": "杭州xx路xx号",
+      "note": ""
+    },
+    {
+      "id": "1ba0cc78-6469-4dd5-9bb2-3453684ee214",
+      "tradername": "七台河-姜亚珍",
+      "storeId": "1",
+      "email": "jyz@qq.com",
+      "phone": "130123123123",
+      "address": "七台河xx路xx号",
+      "type": "批发商",
+      "note": ""
+    }
+  ],
+  "productModels": [
+    {
+      "id": "32MP-53008",
+      "traderId": "101",
+      "storeId": "1",
+      "seasonDate": "2023-08",
+      "type": "裤子",
+      "costPrice": 113.62,
+      "labelPrice": 299,
+      "disaccount": 0.38,
+      "sellingPrice": 0
+    },
+    {
+      "id": "32PY-30053",
+      "traderId": "101",
+      "storeId": "1",
+      "seasonDate": "2023-08",
+      "type": "牛仔连衣裙",
+      "costPrice": 263.6,
+      "labelPrice": 659,
+      "disaccount": 0.4,
+      "sellingPrice": 0
+    },
+    {
+      "id": "32VT-48752",
+      "storeId": "1",
+      "traderId": "101",
+      "seasonDate": "2023-08-09",
+      "type": "上衣",
+      "costPrice": 339,
+      "labelPrice": 128.82,
+      "disaccount": 0.38,
+      "sellingPrice": 0
+    },
+    {
+      "id": "32VV-23623",
+      "storeId": "1",
+      "traderId": "101",
+      "seasonDate": "2023-08",
+      "type": "上衣",
+      "costPrice": 125.02,
+      "labelPrice": 329,
+      "disaccount": 0.38,
+      "sellingPrice": 0
+    }
+  ],
+  "products": [
+    {
+      "modelId": "32MP-53008",
+      "productId": "aaa-000",
+      "size": "84",
+      "color": "黑色",
+      "initialVolume": 1,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32MP-53008",
+      "productId": "aaa-001",
+      "size": "88",
+      "color": "黑色",
+      "initialVolume": 10,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32MP-53008",
+      "productId": "aaa-002",
+      "size": "92",
+      "color": "黑色",
+      "initialVolume": 8,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32MP-53008",
+      "productId": "aaa-003",
+      "size": "96",
+      "color": "黑色",
+      "initialVolume": 1,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32PY-30053",
+      "productId": "aab-000",
+      "size": "84",
+      "color": "蓝色",
+      "initialVolume": 2,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32PY-30053",
+      "productId": "aab-001",
+      "size": "88",
+      "color": "蓝色",
+      "initialVolume": 2,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32PY-30053",
+      "productId": "aab-002",
+      "size": "92",
+      "color": "蓝色",
+      "initialVolume": 2,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32PY-30053",
+      "productId": "aab-003",
+      "size": "96",
+      "color": "蓝色",
+      "initialVolume": 2,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VT-48752",
+      "productId": "aac-000",
+      "size": "84",
+      "color": "粉红",
+      "initialVolume": 3,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VT-48752",
+      "productId": "aac-001",
+      "size": "88",
+      "color": "粉红",
+      "initialVolume": 3,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VT-48752",
+      "productId": "aac-002",
+      "size": "92",
+      "color": "粉红",
+      "initialVolume": 3,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VV-23623",
+      "productId": "aad-000",
+      "size": "84",
+      "color": "黑色",
+      "initialVolume": 2,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VV-23623",
+      "productId": "aad-001",
+      "size": "88",
+      "color": "黑色",
+      "initialVolume": 1,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VV-23623",
+      "productId": "aad-002",
+      "size": "92",
+      "color": "黑色",
+      "initialVolume": 1,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VV-23623",
+      "productId": "aae-003",
+      "size": "84",
+      "color": "米色",
+      "initialVolume": 1,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VV-23623",
+      "productId": "aae-004",
+      "size": "88",
+      "color": "米色",
+      "initialVolume": 1,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    },
+    {
+      "modelId": "32VV-23623",
+      "productId": "aae-005",
+      "size": "92",
+      "color": "米色",
+      "initialVolume": 3,
+      "restockVolume": 0,
+      "returnVolume": 0,
+      "currentStock": 0,
+      "purchasedVolume": 0,
+      "isOnSale": false
+    }
+  ],
+  "tradings": [
+    {
+      "id": "qweonasdnkqwnel",
+      "tradingId": "DA31016281",
+      "storeId": "1",
+      "date": "2023/09/19",
+      "userId": "0",
+      "username": "赵媛媛",
+      "storename": "哈尔滨千百惠",
+      "traderId": "101",
+      "tradername": "千百惠总部",
+      "tradingType": "采购进货",
+      "status": "已结清",
+      "note": "渠道调拨",
+      "tradingDetail": [
+        {
+          "productModelId": "32MP-53008",
+          "productType": "裤子",
+          "purchasingPrice": 113.62,
+          "labelPrice": 299,
+          "disaccount": 0.38,
+          "amount": 20,
+          "totalCost": 2272.4,
+          "products": [
+            {
+              "productId": "aaa-000",
+              "size": "84",
+              "color": "黑色",
+              "amount": "1"
+            },
+            {
+              "productId": "aaa-001",
+              "size": "88",
+              "color": "黑色",
+              "amount": "10"
+            },
+            {
+              "productId": "aaa-002",
+              "size": "92",
+              "color": "黑色",
+              "amount": "8"
+            },
+            {
+              "productId": "aaa-003",
+              "size": "96",
+              "color": "黑色",
+              "amount": "1"
+            }
+          ]
+        },
+        {
+          "productModelId": "32PY-30053",
+          "productType": "牛仔连衣裙",
+          "purchasingPrice": 263.6,
+          "labelPrice": 659,
+          "disaccount": 0.4,
+          "amount": 8,
+          "totalCost": 2108.8,
+          "products": [
+            {
+              "productId": "aab-000",
+              "size": "84",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-001",
+              "size": "88",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-002",
+              "size": "92",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-003",
+              "size": "96",
+              "color": "蓝色",
+              "amount": "2"
+            }
+          ]
+        },
+        {
+          "productModelId": "32PY-30053",
+          "productType": "牛仔连衣裙",
+          "purchasingPrice": 263.6,
+          "labelPrice": 659,
+          "disaccount": 0.4,
+          "amount": 8,
+          "totalCost": 2108.8,
+          "products": [
+            {
+              "productId": "aab-000",
+              "size": "84",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-001",
+              "size": "88",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-002",
+              "size": "92",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-003",
+              "size": "96",
+              "color": "蓝色",
+              "amount": "2"
+            }
+          ]
+        },
+        {
+          "productModelId": "32VT-48752",
+          "productType": "上衣",
+          "purchasingPrice": 128.82,
+          "labelPrice": 339,
+          "disaccount": 0.38,
+          "amount": 9,
+          "totalCost": 1159.38,
+          "products": [
+            {
+              "productId": "aac-000",
+              "size": "84",
+              "color": "粉红",
+              "amount": "3"
+            },
+            {
+              "productId": "aac-001",
+              "size": "88",
+              "color": "粉红",
+              "amount": "3"
+            },
+            {
+              "productId": "aac-002",
+              "size": "92",
+              "color": "粉红",
+              "amount": "3"
+            }
+          ]
+        },
+        {
+          "productModelId": "32VV-23623",
+          "productType": "上衣",
+          "purchasingPrice": 125.02,
+          "labelPrice": 329,
+          "disaccount": 0.38,
+          "amount": 11,
+          "totalCost": 1375.22,
+          "products": [
+            {
+              "productId": "aad-000",
+              "size": "84",
+              "color": "黑色",
+              "amount": "2"
+            },
+            {
+              "productId": "aad-001",
+              "size": "88",
+              "color": "黑色",
+              "amount": "1"
+            },
+            {
+              "productId": "aad-002",
+              "size": "92",
+              "color": "黑色",
+              "amount": "1"
+            },
+            {
+              "productId": "aad-003",
+              "size": "84",
+              "color": "米色",
+              "amount": "1"
+            },
+            {
+              "productId": "aad-004",
+              "size": "88",
+              "color": "米色",
+              "amount": "3"
+            },
+            {
+              "productId": "aad-005",
+              "size": "92",
+              "color": "米色",
+              "amount": "3"
+            }
+          ]
+        }
+      ],
+      "totalAmount": 48,
+      "totalFund": 0
+    }
+  ]
+}
