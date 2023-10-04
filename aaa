@@ -1,0 +1,199 @@
+    {
+      "id": "qweonasdnkqwnel",
+      "tradingId": "DA31016281",
+      "storeId": "1",
+      "date": "2023/09/19",
+      "userId": "0",
+      "username": "赵媛媛",
+      "storename": "哈尔滨千百惠",
+      "traderId": "101",
+      "traderName": "千百惠总部",
+      "tradingType": "采购进货",
+      "status": "已结清",
+      "note": "渠道调拨",
+      "tradingDetails": [
+        {
+          "productModelId": "32MP-53008",
+          "productType": "裤子",
+          "purchasingPrice": 113.62,
+          "labelPrice": 299,
+          "disaccount": 0.38,
+          "amount": 20,
+          "totalCost": 2272.4,
+          "products": [
+            {
+              "productId": "aaa-000",
+              "size": "84",
+              "color": "黑色",
+              "amount": "1"
+            },
+            {
+              "productId": "aaa-001",
+              "size": "88",
+              "color": "黑色",
+              "amount": "10"
+            },
+            {
+              "productId": "aaa-002",
+              "size": "92",
+              "color": "黑色",
+              "amount": "8"
+            },
+            {
+              "productId": "aaa-003",
+              "size": "96",
+              "color": "黑色",
+              "amount": "1"
+            }
+          ]
+        },
+        {
+          "productModelId": "32PY-30053",
+          "productType": "牛仔连衣裙",
+          "purchasingPrice": 263.6,
+          "labelPrice": 659,
+          "disaccount": 0.4,
+          "amount": 8,
+          "totalCost": 2108.8,
+          "products": [
+            {
+              "productId": "aab-000",
+              "size": "84",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-001",
+              "size": "88",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-002",
+              "size": "92",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-003",
+              "size": "96",
+              "color": "蓝色",
+              "amount": "2"
+            }
+          ]
+        },
+        {
+          "productModelId": "32PY-30053",
+          "productType": "牛仔连衣裙",
+          "purchasingPrice": 263.6,
+          "labelPrice": 659,
+          "disaccount": 0.4,
+          "amount": 8,
+          "totalCost": 2108.8,
+          "products": [
+            {
+              "productId": "aab-000",
+              "size": "84",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-001",
+              "size": "88",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-002",
+              "size": "92",
+              "color": "蓝色",
+              "amount": "2"
+            },
+            {
+              "productId": "aab-003",
+              "size": "96",
+              "color": "蓝色",
+              "amount": "2"
+            }
+          ]
+        },
+        {
+          "productModelId": "32VT-48752",
+          "productType": "上衣",
+          "purchasingPrice": 128.82,
+          "labelPrice": 339,
+          "disaccount": 0.38,
+          "amount": 9,
+          "totalCost": 1159.38,
+          "products": [
+            {
+              "productId": "aac-000",
+              "size": "84",
+              "color": "粉红",
+              "amount": "3"
+            },
+            {
+              "productId": "aac-001",
+              "size": "88",
+              "color": "粉红",
+              "amount": "3"
+            },
+            {
+              "productId": "aac-002",
+              "size": "92",
+              "color": "粉红",
+              "amount": "3"
+            }
+          ]
+        },
+        {
+          "productModelId": "32VV-23623",
+          "productType": "上衣",
+          "purchasingPrice": 125.02,
+          "labelPrice": 329,
+          "disaccount": 0.38,
+          "amount": 11,
+          "totalCost": 1375.22,
+          "products": [
+            {
+              "productId": "aad-000",
+              "size": "84",
+              "color": "黑色",
+              "amount": "2"
+            },
+            {
+              "productId": "aad-001",
+              "size": "88",
+              "color": "黑色",
+              "amount": "1"
+            },
+            {
+              "productId": "aad-002",
+              "size": "92",
+              "color": "黑色",
+              "amount": "1"
+            },
+            {
+              "productId": "aad-003",
+              "size": "84",
+              "color": "米色",
+              "amount": "1"
+            },
+            {
+              "productId": "aad-004",
+              "size": "88",
+              "color": "米色",
+              "amount": "3"
+            },
+            {
+              "productId": "aad-005",
+              "size": "92",
+              "color": "米色",
+              "amount": "3"
+            }
+          ]
+        }
+      ],
+      "totalAmount": 48,
+      "totalFund": 0
+    }

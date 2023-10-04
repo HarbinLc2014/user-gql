@@ -6,9 +6,11 @@ const {
     GraphQLString,
     GraphQLBoolean,
     GraphQLInt,
+    GraphQLFloat,
     GraphQLSchema,
     GraphQLList,
-    GraphQLNonNull
+    GraphQLNonNull,
+    GraphQLInputObjectType,
 } = graphql
 const { v4: uuidv4 } = require('uuid');
 
@@ -25,7 +27,7 @@ const TraderType = new GraphQLObjectType({
     name: 'Trader',
     fields: {
         id: { type: new GraphQLNonNull(GraphQLString) },
-        tradername: { type: GraphQLString },
+        traderName: { type: GraphQLString },
         storeId: { type: GraphQLString },
         email: { type: GraphQLString },
         phone: { type: GraphQLString },
@@ -35,60 +37,105 @@ const TraderType = new GraphQLObjectType({
     }
 })
 
-// const TradeType = () => new GraphQLObjectType({
-//     name: 'Trade',
-//     fields: {
-//         id: { type: GraphQLString },
-//         tradingId: { type: GraphQLString },
-//         storeId: { type: GraphQLString },
-//         date: { type: GraphQLString },
-//         userId: { type: GraphQLString },
-//         username: { type: GraphQLString },
-//         partnerId: { type: GraphQLString },
-//         tradername: { type: GraphQLString },
-//         tradingType: { type: GraphQLString },
-//         totalFund: { type: GraphQLInt },
-//         tradingDetails: { type: new GraphQLNonNull(GraphQLList(TradeDetailType)) },
-//     }
-// })
-
-const TradeDetailType = new GraphQLObjectType({
-    name: 'TradeDetail',
+const TradingProductDetailInputType =  new GraphQLInputObjectType({
+    name: 'TradingProductDetailInput',
     fields: {
         productId: { type: GraphQLString },
-        singlePrice: { type: GraphQLInt },
+        size: { type: GraphQLString },
+        color: { type: GraphQLString },
+        amount: { type: GraphQLInt },
+    }
+})
+  
+
+const TradingProductDetailType = new GraphQLObjectType({
+    name: 'TradingProductDetail',
+    fields: {
+        productId: { type: GraphQLString },
+        size: { type: GraphQLString },
+        color: { type: GraphQLString },
         amount: { type: GraphQLInt }
     }
 })
 
-const ProductModelType = () => new GraphQLObjectType({
-    name: 'ProductModel',
+const TradingDetailInputType = new GraphQLInputObjectType({
+    name: 'TradingDetailInput',
     fields: {
-        id: { type: new GraphQLNonNull(GraphQLString) },
-        storeId: { type: GraphQLString },
-        seasonDate: { type: GraphQLString },
-        type: { type: GraphQLString },
-        variety: { 
-            type: new GraphQLList(ProductInfoType),
-            resolve(parentValue, args){
-
-            }
-        }
+        productModelId: { type: GraphQLString },
+        productType: { type: GraphQLString },
+        purchasingPrice: { type: GraphQLFloat},
+        labelPrice: { type: GraphQLFloat },
+        disaccount: { type: GraphQLFloat },
+        amount: { type: GraphQLInt },
+        totalCost: { type: GraphQLFloat },
+        products: { type: GraphQLList(TradingProductDetailInputType) }
     }
 })
 
-const ProductInfoType = new GraphQLObjectType({
-    name: 'ProductInfo',
+const TradingDetailType = new GraphQLObjectType({
+    name: 'TradingDetail',
     fields: {
-        productId: { type: new GraphQLNonNull(GraphQLString) }, 
-        initialVolume: { type: new GraphQLNonNull(GraphQLInt) }, 
-        restockVolume: { type: new GraphQLNonNull(GraphQLInt) }, 
-        returnVolume: { type: new GraphQLNonNull(GraphQLInt)}, 
-        currentStock: { type: new GraphQLNonNull(GraphQLInt) }, 
-        purchasedVolume: { type: new GraphQLNonNull(GraphQLInt) }, 
-        costPrice: { type: new GraphQLNonNull(GraphQLInt) }, 
-        labelPrice: { type: new GraphQLNonNull(GraphQLInt) },
-        disaccount: { type: GraphQLInt }
+        productModelId: { type: GraphQLString },
+        productType: { type: GraphQLString },
+        purchasingPrice: { type: GraphQLFloat},
+        labelPrice: { type: GraphQLFloat },
+        disaccount: { type: GraphQLFloat },
+        amount: { type: GraphQLInt },
+        totalCost: { type: GraphQLFloat },
+        products: { type: GraphQLList(TradingProductDetailType) }
+    }
+})
+
+const TradingType = new GraphQLObjectType({
+    name: 'Trading',
+    fields: {
+        id: { type: GraphQLString },
+        tradingId: { type: GraphQLString },
+        storeId: { type: GraphQLString },
+        date: { type: GraphQLString },
+        userId: { type: GraphQLString },
+        username: { type: GraphQLString },
+        storename: { type: GraphQLString },
+        traderId: { type: GraphQLString },
+        traderName: { type: GraphQLString },
+        tradingType: { type: GraphQLString },
+        status: { type: GraphQLString },
+        note: { type: GraphQLString },
+        totalFund: { type: GraphQLFloat },
+        totalAmount: { type: GraphQLInt },
+        tradingDetails: { type: new GraphQLNonNull(GraphQLList(TradingDetailType)) },
+    }
+})
+
+
+const ProductModelType = new GraphQLObjectType({
+    name: 'ProductModel',
+    fields: {
+        id: { type: new GraphQLNonNull(GraphQLString) },
+        traderId: { type: GraphQLString },
+        storeId: { type: GraphQLString },
+        seasonDate: { type: GraphQLString },
+        type: { type: GraphQLString },
+        costPrice: { type: GraphQLFloat },
+        labelPrice: { type: GraphQLFloat },
+        disaccount: { type: GraphQLFloat },
+        sellingPrice: { type: GraphQLFloat }
+    }
+})
+
+const ProductType = new GraphQLObjectType({
+    name: 'Product',
+    fields: {
+        productModelId: { type: new GraphQLNonNull(GraphQLString) },
+        id: { type: new GraphQLNonNull(GraphQLString) },
+        size: { type: new GraphQLNonNull(GraphQLString) },
+        color: { type: new GraphQLNonNull(GraphQLString) },
+        initialVolume: { type: new GraphQLNonNull(GraphQLInt) },
+        restockVolume: { type: new GraphQLNonNull(GraphQLInt) },
+        returnVolume: { type: new GraphQLNonNull(GraphQLInt) },
+        currentStock: { type: new GraphQLNonNull(GraphQLInt) },
+        purchasedVolume: { type: new GraphQLNonNull(GraphQLInt) },
+        isOnSale: { type: new GraphQLNonNull(GraphQLBoolean) }
     }
 })
 
@@ -97,22 +144,22 @@ const StoreType = new GraphQLObjectType({
     name: 'Store',
     fields: {
         id: { type: GraphQLString },
-        storename: { type: GraphQLString } ,
+        storename: { type: GraphQLString },
         owner: {
             type: UserType,
-            resolve(parentValue, args){
-               return axios.get(`http://localhost:3000/users/${parentValue.ownerId}`).then(response => response.data)
+            resolve(parentValue, args) {
+                return axios.get(`http://localhost:3000/users/${parentValue.ownerId}`).then(response => response.data)
             }
         },
         staff: {
             type: new GraphQLList(UserType),
-            resolve(parentValue, args){
+            resolve(parentValue, args) {
                 return axios.get(`http://localhost:3000/stores/${parentValue.id}/users`).then(response => response.data)
             }
         },
         clients: {
             type: new GraphQLList(UserType),
-            resolve(parentValue, args){
+            resolve(parentValue, args) {
                 return axios.get(`http://localhost:3000/stores/${parentValue.id}/users`).then(response => response.data)
             }
         }
@@ -150,7 +197,7 @@ const mutation = new GraphQLObjectType({
             },
             resolve(parentValue, { username, storeId }) {
                 let myuuid = uuidv4();
-                return axios.post('http://localhost:3000/users', { id: myuuid, username, storeId }).then(res=>res.data)
+                return axios.post('http://localhost:3000/users', { id: myuuid, username, storeId }).then(res => res.data)
             }
         },
         deleteUser: {
@@ -159,7 +206,7 @@ const mutation = new GraphQLObjectType({
                 id: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parentValue, { id }) {
-                return axios.delete(`http://localhost:3000/users/${id}`).then(res=> res.data)
+                return axios.delete(`http://localhost:3000/users/${id}`).then(res => res.data)
             }
         },
         editUser: {
@@ -169,26 +216,26 @@ const mutation = new GraphQLObjectType({
                 username: { type: GraphQLString },
                 storeId: { type: GraphQLString }
             },
-            resolve(parentValue, args){
-                return axios.patch(`http://localhost:3000/users/${args.id}`, args).then(res=>res.data)
+            resolve(parentValue, args) {
+                return axios.patch(`http://localhost:3000/users/${args.id}`, args).then(res => res.data)
             }
         },
         addStore: {
             type: StoreType,
-            args: { 
+            args: {
                 storename: { type: GraphQLString },
                 ownerId: { type: GraphQLString },
-             },
+            },
             resolve(parentValue, { storename = '', ownerId = '' }) {
                 let myuuid = uuidv4();
-                return axios.post(`http://localhost:3000/store`, { id: myuuid, storename: storename || '', ownerId: ownerId || '' }).then(res=>res.data)
+                return axios.post(`http://localhost:3000/store`, { id: myuuid, storename: storename || '', ownerId: ownerId || '' }).then(res => res.data)
             }
         },
         addTrader: {
             type: TraderType,
             args: {
                 // id: "101",
-                tradername: { type: new GraphQLNonNull(GraphQLString) },
+                traderName: { type: new GraphQLNonNull(GraphQLString) },
                 storeId: { type: GraphQLString },
                 email: { type: GraphQLString },
                 phone: { type: GraphQLString },
@@ -196,16 +243,16 @@ const mutation = new GraphQLObjectType({
                 address: { type: GraphQLString },
                 note: { type: GraphQLString }
             },
-            resolve(parentValue, { tradername, storeId, email, phone, address, type, note }) {
+            resolve(parentValue, { traderName, storeId, email, phone, address, type, note }) {
                 let myuuid = uuidv4();
-                return axios.post(`http://localhost:3000/traders`, { id: myuuid, tradername, storeId, email, phone, address, type, note }).then(res=>res.data)
+                return axios.post(`http://localhost:3000/traders`, { id: myuuid, traderName, storeId, email, phone, address, type, note }).then(res => res.data)
             }
         },
         editTrader: {
             type: TraderType,
             args: {
                 id: { type: new GraphQLNonNull(GraphQLString) },
-                tradername: { type: GraphQLString },
+                traderName: { type: GraphQLString },
                 storeId: { type: GraphQLString },
                 email: { type: GraphQLString },
                 phone: { type: GraphQLString },
@@ -213,8 +260,8 @@ const mutation = new GraphQLObjectType({
                 address: { type: GraphQLString },
                 note: { type: GraphQLString }
             },
-            resolve(parentValue, args){
-                return axios.patch(`http://localhost:3000/traders/${args.id}`, args).then(res=>res.data)
+            resolve(parentValue, args) {
+                return axios.patch(`http://localhost:3000/traders/${args.id}`, args).then(res => res.data)
             }
         },
         deleteTrader: {
@@ -223,14 +270,132 @@ const mutation = new GraphQLObjectType({
                 id: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parentValue, { id }) {
-                return axios.delete(`http://localhost:3000/traders/${id}`).then(res=> res.data)
+                return axios.delete(`http://localhost:3000/traders/${id}`).then(res => res.data)
             }
         },
-        // registerProduct: {
-        //     type: Product
+        addProductModel: {
+            type: ProductModelType,
+            args: {
+                traderId: { type: GraphQLString },
+                storeId: { type: new GraphQLNonNull(GraphQLString) },
+                seasonDate: { type: GraphQLString },
+                type: { type: GraphQLString },
+                costPrice: { type: GraphQLFloat },
+                labelPrice: { type: GraphQLFloat },
+                disaccount: { type: GraphQLFloat },
+                sellingPrice: { type: GraphQLFloat }
+            },
+            resolve(parentValue, args) {
+                let myuuid = uuidv4();
+                return axios.post(`http://localhost:3000/productmodels`, {
+                    id: myuuid,
+                    ...args
+                }).then(res => res.data)
+            }
+        },
+        editProductModel: {
+            type: ProductModelType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) },
+                traderId: { type: GraphQLString },
+                storeId: { type: new GraphQLNonNull(GraphQLString) },
+                seasonDate: { type: GraphQLString },
+                type: { type: GraphQLString },
+                costPrice: { type: GraphQLFloat },
+                labelPrice: { type: GraphQLFloat },
+                disaccount: { type: GraphQLFloat },
+                sellingPrice: { type: GraphQLFloat }
+            },
+            resolve(parentValue, args) {
+                return axios.patch(`http://localhost:3000/productmodels/${id}`,args).then(res => res.data)
+            }
+        },
+        deleteProductModel: {
+            type: ProductModelType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            resolve(parentValue, { id }) {
+                return axios.delete(`http://localhost:3000/productModels/${id}`).then(res => res.data)
+            }
+        },
+        addProduct: {
+            type: ProductType,
+            args: {
+                productModelId: { type: new GraphQLNonNull(GraphQLString) },
+                size: { type: new GraphQLNonNull(GraphQLString) },
+                color: { type: new GraphQLNonNull(GraphQLString) },
+                initialVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                restockVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                returnVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                currentStock: { type: new GraphQLNonNull(GraphQLInt) },
+                purchasedVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                isOnSale: { type: new GraphQLNonNull(GraphQLBoolean) }
+            },
+            resolve(parentValue, args) {
+                let myuuid = uuidv4();
+                return axios.post(`http://localhost:3000/products`, {id: myuuid, ...args}).then(res=>res.data)
+            }
+        },
+        editProduct: {
+            type: ProductType,
+            args:{
+                id: { type: new GraphQLNonNull(GraphQLString) },
+                productModelId: { type: new GraphQLNonNull(GraphQLString) },
+                size: { type: new GraphQLNonNull(GraphQLString) },
+                color: { type: new GraphQLNonNull(GraphQLString) },
+                initialVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                restockVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                returnVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                currentStock: { type: new GraphQLNonNull(GraphQLInt) },
+                purchasedVolume: { type: new GraphQLNonNull(GraphQLInt) },
+                isOnSale: { type: new GraphQLNonNull(GraphQLBoolean) }
+            },
+            resolve(parentValue, args) {
+                return axios.patch(`http://localhost:3000/products/${id}`,args).then(res => res.data)
+            }
+        },
+        deleteProduct: {
+            type: ProductType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLString) }
+            },
+            resolve(parentValue, { id }) {
+                return axios.delete(`http://localhost:3000/products/${id}`).then(res => res.data)
+            }
+        },
+        addTrading: {
+            type: TradingType,
+            args: {
+                tradingId: { type: GraphQLString },
+                storeId: { type: GraphQLString },
+                date: { type: GraphQLString },
+                userId: { type: GraphQLString },
+                username: { type: GraphQLString },
+                storename: { type: GraphQLString },
+                traderId: { type: GraphQLString },
+                traderName: { type: GraphQLString },
+                tradingType: { type: GraphQLString },
+                status: { type: GraphQLString },
+                note: { type: GraphQLString },
+                totalFund: { type: GraphQLFloat },
+                totalAmount: { type: GraphQLInt },
+                tradingDetails: { type: new GraphQLNonNull(GraphQLList(TradingDetailInputType)) },
+            },
+            resolve(parentValue, args){
+                let myuuid = uuidv4();
+                return axios.post(`http://localhost:3000/tradings`, { id: myuuid, ...args }).then(res => res.data)
+            }
+        },
+        // editTrading: {
+
         // },
+        // deleteTrading: {
+
+        // }
     }
 })
+
 
 module.exports = new GraphQLSchema({
     query: RootQuery,
